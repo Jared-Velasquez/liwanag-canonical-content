@@ -1,0 +1,71 @@
+id: a_1
+title: "Activity 1"
+questions:
+  # --- 1) MCQ (single correct) ---
+  - qid: q_1
+    type: MCQ
+    difficulty: "<LEVEL>"
+    tags: ["<TAG1>", "<TAG2>"]
+    stem: "<STEM_TEXT>"
+    choices:
+      - { id: "A", t: "<OPTION_A>", ok: true }
+      - { id: "B", t: "<OPTION_B>", ok: false }
+      - { id: "C", t: "<OPTION_C>", ok: false }
+    media:
+      - { kind: "audio", s3: "s3://<CONTENT_BUCKET>/<PATH>/<FILE>.mp3" }
+    feedback:
+      correct: "<FEEDBACK_CORRECT>"
+      incorrect: "<FEEDBACK_INCORRECT>"
+
+  # --- 2) MCQ (multi-select) ---
+  - qid: q_2
+    type: MCQ_MULTI
+    multipleCorrect: true
+    minCorrect: 2
+    difficulty: "<LEVEL>"
+    tags: ["<TAG1>"]
+    stem: "<STEM_TEXT>"
+    choices:
+      - { id: "A", t: "<OPTION_A>", ok: true }
+      - { id: "B", t: "<OPTION_B>", ok: true }
+      - { id: "C", t: "<OPTION_C>", ok: false }
+      - { id: "D", t: "<OPTION_D>", ok: false }
+    evaluation:
+      mode: "multi_set"
+    feedback:
+      correct: "<FEEDBACK_CORRECT>"
+      incorrect: "<FEEDBACK_INCORRECT>"
+
+  # --- 3) FIB (exact or Levenshtein) ---
+  - qid: q_3
+    type: FIB
+    difficulty: "<LEVEL>"
+    tags: ["<TAG1>"]
+    stem: "<PROMPT_TEXT>"
+    evaluation:
+      mode: "exact_or_levenshtein"
+      normalize:
+        lowercase: true
+        trim: true
+        strip_diacritics: true
+      acceptableAnswers: ["<ANSWER_1>", "<ANSWER_2>"]
+      levenshtein:
+        maxDistance: 1
+    feedback:
+      correct: "<FEEDBACK_CORRECT>"
+      incorrect: "<FEEDBACK_INCORRECT>"
+
+  # --- 4) Cloze (multiple blanks) ---
+  - qid: q_4
+    type: CLOZE 
+    difficulty: "<LEVEL>"
+    tags: ["<TAG1>"]
+    text: "<TEXT_WITH_{0}_AND_{1}_BLANKS>"
+    blanks:
+      - acceptable: ["<BLANK0_ANSWER_1>", "<BLANK0_ANSWER_2>"]
+        normalize: { lowercase: true, trim: true }
+      - acceptable: ["<BLANK1_ANSWER_1>"]
+        normalize: { lowercase: true, trim: true }
+    feedback:
+      correct: "<FEEDBACK_CORRECT>"
+      incorrect: "<FEEDBACK_INCORRECT>"
