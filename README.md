@@ -6,5 +6,5 @@ Run the script with:
 
 ```bash
 cd ~/liwanag-canonical-content/scripts
-python3 generate_content.py
+python3 generate_content.py -h
 ```
