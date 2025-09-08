@@ -71,7 +71,7 @@ def _build_manifest(unit_id: str, episode_id: str, a_yaml: Dict[str, Any]) -> Di
         "unitId": unit_id,
         "episodeId": episode_id,
         "activityId": aid,                         # local id
-        "activityFqid": f"{unit_id}/{episode_id}/{aid}",  # for easy client logging
+        "activityFqId": f"{unit_id}/{episode_id}/{aid}",  # for easy client logging
         "title": title,
         "version": version,
         "locale": locale,
